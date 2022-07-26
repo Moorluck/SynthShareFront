@@ -1,0 +1,47 @@
+.main-container {
+    padding: 0 10em;
+}
+
+.grid-container, .setting-container {
+    display: grid;
+    gap: 0.2em;
+    grid-template-columns: repeat(16, 1fr);
+    margin-bottom: 0.2em;
+
+    .note-button, .setting-button {
+        border-radius: 0.3em;
+        opacity: 0.6;
+    }
+
+    .note-button {
+        height: 1.7em;
+        width: 100%;
+        background-color: yellowgreen;
+    }
+
+    .setting-button {
+        display: flex;
+        justify-content: center;
+        background-color: orange;
+        cursor: pointer;
+    }
+
+    .selected {
+        opacity: 1;
+    }
+
+    .activated {
+        opacity: 1;
+        background-color: green;
+    }
+}
+
+@media screen and(max-width: 1000px) {
+    .main-container {
+        padding: 0 1em;
+    }
+
+    .note-button {
+        height: 1.5em;
+    }
+}

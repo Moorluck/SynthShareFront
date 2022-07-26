@@ -1,0 +1,31 @@
+ul {
+    display: flex; 
+    padding-left: 0;
+    align-items: center;
+    padding: 1em 10em;
+    background-color: aliceblue;
+    margin-bottom: 1em;
+
+    li {
+        list-style: none;
+        margin-right: 2em;
+
+        img {
+            width: 2em;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+@media screen and(max-width: 1000px) {
+    ul {
+        padding: 1em 0;
+        img {
+            margin-left: 1em;
+        }
+    }
+}

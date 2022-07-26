@@ -1,0 +1,27 @@
+<div class="main-container">
+    <div class="grid-container">
+        <ng-container *ngFor="let row of grids[instrumentSelected]">
+            <div *ngFor="let note of row" 
+                    [ngClass]="{
+                        'note-button': true, 
+                        'selected': note.selected,
+                        'activated': note.active
+                    }" 
+                    (mouseover)="onButtonMouseOver(note)"
+                    (mouseout)="onButtonMouseOver(note)"
+                    (click)="onButtonClick(note)">
+            </div>
+        </ng-container>
+    </div>
+    <div class="setting-container" >
+        <ng-container *ngFor="let note of grids[0][0]; let i = index">
+            <div [ngClass]="{'setting-button': true, 'selected': i === instrumentSelected}" 
+                    (click)="onInstrumentSelected(i)">
+                <a>
+                    {{i+1}}
+                </a>
+            </div>
+        </ng-container>
+    </div>
+    <app-setting [settingSelected]="instrumentSelected"></app-setting>
+</div>
