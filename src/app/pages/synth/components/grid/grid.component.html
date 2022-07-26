@@ -1,20 +1,26 @@
-<div class="main-container">
+<div class="main-container" *ngIf="song !== undefined">
+    <div class="global-setting-container">
+        <input type="text">
+        <select name="" id="">
+            <ng-container *ngFor="let n of notes">
+                <option>{{n}}</option>
+            </ng-container>
+        </select>
+    </div>
     <div class="grid-container">
-        <ng-container *ngFor="let row of grids[instrumentSelected]">
-            <div *ngFor="let note of row" 
+        <ng-container *ngFor="let row of song.loops[instrumentSelected].content; let i = index">
+            <div *ngFor="let note of row; let col = index" 
                     [ngClass]="{
                         'note-button': true, 
                         'selected': note.selected,
                         'activated': note.active
                     }" 
-                    (mouseover)="onButtonMouseOver(note)"
-                    (mouseout)="onButtonMouseOver(note)"
                     (click)="onButtonClick(note)">
             </div>
         </ng-container>
     </div>
     <div class="setting-container" >
-        <ng-container *ngFor="let note of grids[0][0]; let i = index">
+        <ng-container *ngFor="let note of song.loops[0].content[0]; let i = index">
             <div [ngClass]="{'setting-button': true, 'selected': i === instrumentSelected}" 
                     (click)="onInstrumentSelected(i)">
                 <a>

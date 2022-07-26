@@ -1,1 +1,6 @@
-<p>login works!</p>
+<form [formGroup]="form" (ngSubmit)="onPlay()">
+    <input type="text" formControlName="username">
+    <input type="text" formControlName="password">
+    <h1>{{form.value.password}}</h1>
+    <button type="submit">Play !</button>
+</form>
